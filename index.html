@@ -291,30 +291,24 @@
         <div class="section-head reveal">
           <span class="section-num">02</span>
           <h2>Świat gry</h2>
-          <p><strong>Leonida</strong> to fikcyjny stan wzorowany na Florydzie. Jego sercem jest powracające do serii <strong>Vice City</strong> – neony, plaże, jachty i ciemna strona słońca. Kliknij punkt na mapie, żeby poznać region.</p>
+          <p><strong>Leonida</strong> to fikcyjny stan wzorowany na Florydzie. Jego sercem jest powracające do serii <strong>Vice City</strong> – neony, plaże, jachty i ciemna strona słońca. Kliknij punkt na mapie albo kartę regionu, żeby dowiedzieć się więcej.</p>
         </div>
 
         <div class="world-layout">
           <div class="map-wrap reveal">
-            <svg class="leonida-map" viewBox="0 0 600 640" role="img" aria-label="Schematyczna fanowska mapa Leonidy">
-              <defs>
-                <linearGradient id="landG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a1747"/><stop offset="1" stop-color="#1b2f45"/></linearGradient>
-                <pattern id="waves" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0 6q6-6 12 0t12 0" fill="none" stroke="currentColor" stroke-width="1" opacity=".18"/></pattern>
-              </defs>
-              <rect width="600" height="640" fill="url(#waves)" class="map-sea"/>
-              <path class="map-land" d="M40 70 L330 60 L360 90 L420 100 L440 140 L430 200 L460 260 L470 330 L500 400 L510 470 L490 520 L455 545 L420 520 L400 470 L360 440 L330 400 L300 360 L290 300 L250 250 L220 200 L180 170 L120 160 L60 150 Z" fill="url(#landG)"/>
-              <path class="map-keys" d="M440 560 q-30 20 -70 26 q-40 6 -80 24" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 10"/>
-              <path class="map-swamp" d="M340 420 q40 -10 70 20 q10 40 -20 60 q-40 0 -60 -30 q-6 -30 10 -50z"/>
-              <g class="map-pins">
-                <g class="pin" data-loc="vice" tabindex="0" role="button" aria-label="Vice City" transform="translate(470 470)"><circle r="16" class="pin-pulse"/><circle r="8"/><text y="-18">Vice City</text></g>
-                <g class="pin" data-loc="keys" tabindex="0" role="button" aria-label="Leonida Keys" transform="translate(360 586)"><circle r="16" class="pin-pulse"/><circle r="8"/><text y="-18">Leonida Keys</text></g>
-                <g class="pin" data-loc="grass" tabindex="0" role="button" aria-label="Grassrivers" transform="translate(375 455)"><circle r="16" class="pin-pulse"/><circle r="8"/><text y="28">Grassrivers</text></g>
-                <g class="pin" data-loc="port" tabindex="0" role="button" aria-label="Port Gellhorn" transform="translate(120 120)"><circle r="16" class="pin-pulse"/><circle r="8"/><text y="-18">Port Gellhorn</text></g>
-                <g class="pin" data-loc="ambrosia" tabindex="0" role="button" aria-label="Ambrosia" transform="translate(330 250)"><circle r="16" class="pin-pulse"/><circle r="8"/><text y="-18">Ambrosia</text></g>
-                <g class="pin" data-loc="kalaga" tabindex="0" role="button" aria-label="Mount Kalaga National Park" transform="translate(370 130)"><circle r="16" class="pin-pulse"/><circle r="8"/><text y="-18">Mount Kalaga</text></g>
-              </g>
-              <text x="20" y="625" class="map-caption">Mapa schematyczna (fanowska) – położenie regionów przybliżone</text>
-            </svg>
+            <div class="map-img" id="mapImg">
+              <img src="img/mapa.webp" alt="Mapa okolic Vice City: Vice City, Vice Beach, lotnisko VCIA, Vice-Dale County, Grassrivers, Hamlet i Capri" width="860" height="484">
+              <button class="pin" data-loc="vice" style="--x:68.5%;--y:33%" aria-label="Vice City"><span class="pin-dot"></span></button>
+              <button class="pin" data-loc="beach" style="--x:88%;--y:28%" aria-label="Vice Beach"><span class="pin-dot"></span></button>
+              <button class="pin" data-loc="vcia" style="--x:47%;--y:54%" aria-label="VCIA – lotnisko"><span class="pin-dot"></span></button>
+              <button class="pin" data-loc="grass" style="--x:29%;--y:80%" aria-label="Grassrivers"><span class="pin-dot"></span></button>
+              <button class="pin" data-loc="hamlet" style="--x:51%;--y:86%" aria-label="Hamlet"><span class="pin-dot"></span></button>
+              <button class="pin" data-loc="capri" style="--x:11.5%;--y:40%" aria-label="Capri"><span class="pin-dot"></span></button>
+            </div>
+            <div class="map-foot">
+              <span>Okolice Vice City · kliknij punkt na mapie</span>
+              <a href="img/mapa.webp" target="_blank" rel="noopener">Otwórz pełny rozmiar ↗</a>
+            </div>
           </div>
 
           <aside class="loc-panel reveal" id="locPanel" aria-live="polite">
@@ -329,6 +323,15 @@
         <div class="loc-cards">
           <article class="loc-card reveal" data-loc-open="vice" data-search-title="Vice City" data-search-text="Vice City miasto metropolia plaże neony Miami powrót serii">
             <h4>Vice City</h4><p>Powrót legendarnego miasta: plaże, kluby, wieżowce i ostry kontrast bogactwa z ulicą.</p>
+          </article>
+          <article class="loc-card reveal" data-loc-open="beach" data-search-title="Vice Beach" data-search-text="Vice Beach wyspa plaża Ocean Beach Washington Beach">
+            <h4>Vice Beach</h4><p>Wyspa na wschód od centrum, z plażami Ocean Beach i Washington Beach.</p>
+          </article>
+          <article class="loc-card reveal" data-loc-open="hamlet" data-search-title="Hamlet" data-search-text="Hamlet miejscowość południe Hamlet Correctional Institution">
+            <h4>Hamlet</h4><p>Miejscowość na południe od Vice City, obok zakładu karnego Hamlet Correctional Institution.</p>
+          </article>
+          <article class="loc-card reveal" data-loc-open="capri" data-search-title="Capri" data-search-text="Capri miasto zachodnie wybrzeże trasa 183">
+            <h4>Capri</h4><p>Miasto na zachodnim wybrzeżu, przy trasie 183.</p>
           </article>
           <article class="loc-card reveal" data-loc-open="keys" data-search-title="Leonida Keys" data-search-text="Leonida Keys wyspy mosty Jason przemyt">
             <h4>Leonida Keys</h4><p>Łańcuch wysp połączonych mostami – to tutaj Jason pracuje dla przemytników.</p>

@@ -82,6 +82,18 @@
     vice: { name: "Vice City", type: "Metropolia · wybrzeże", status: "confirmed",
       desc: "Serce Leonidy i najbardziej rozpoznawalne miejsce gry. Słoneczne plaże, luksusowe jachty i kluby kontrastują z ulicami, na których toczy się zupełnie inne życie.",
       facts: [["Inspiracja", "Miami i okolice"], ["W serii", "GTA Vice City (2002) i Vice City Stories (2006)"], ["Klimat", "neony, plaże, nocne życie"]] },
+    beach: { name: "Vice Beach", type: "Wyspa · plaże", status: "confirmed",
+      desc: "Wyspa po wschodniej stronie zatoki, połączona z centrum Vice City groblami. Od strony oceanu ciągną się plaże.",
+      facts: [["Na mapie", "Ocean Beach, Washington Beach"], ["Sąsiedztwo", "Starfish Island, Catalan Island, Dalton Island"], ["Klimat", "plaża, ocean, kurorty"]] },
+    vcia: { name: "VCIA", type: "Lotnisko", status: "confirmed",
+      desc: "Vice City International Airport – międzynarodowe lotnisko na zachód od centrum miasta, z kilkoma pasami startowymi.",
+      facts: [["Pełna nazwa", "Vice City International Airport"], ["Dojazd", "trasy 404 i 97"], ["Okolice", "Salton, Little Cuba, Bluegrass"]] },
+    hamlet: { name: "Hamlet", type: "Miejscowość · południe", status: "confirmed",
+      desc: "Miejscowość na południowym skraju aglomeracji, przy trasie 35. Tuż obok leży zakład karny.",
+      facts: [["Na mapie", "Hamlet Correctional Institution"], ["Sąsiedztwo", "South Vice-Dale, Grassrivers"], ["Dojazd", "trasa 35"]] },
+    capri: { name: "Capri", type: "Miasto · zachodnie wybrzeże", status: "confirmed",
+      desc: "Miasto na zachodnim wybrzeżu, na końcu trasy 183 prowadzącej przez mokradła od strony Vice City.",
+      facts: [["Dojazd", "trasa 183"], ["Sąsiedztwo", "Bobcat Key, Bobcat Bight"], ["Klimat", "zatoka, mokradła, wybrzeże"]] },
     keys: { name: "Leonida Keys", type: "Archipelag · mosty", status: "confirmed",
       desc: "Łańcuch wysp połączonych długimi mostami. To tu Jason osiadł po służbie w armii i pracuje dla miejscowych przemytników.",
       facts: [["Inspiracja", "Florida Keys"], ["Postacie", "Jason, Brian Heder, Cal Hampton"], ["Klimat", "łodzie, wyspy, turkusowa woda"]] },
@@ -90,13 +102,13 @@
       facts: [["Inspiracja", "Everglades"], ["Atrakcje", "łodzie ślizgowe, aligatory"], ["Klimat", "mgła, cisza, niebezpieczeństwo"]] },
     port: { name: "Port Gellhorn", type: "Miasto portowe", status: "confirmed",
       desc: "Podupadłe nadmorskie miasteczko, które swoje najlepsze lata ma dawno za sobą. Opustoszałe atrakcje i ludzie, którzy nie mają już wiele do stracenia.",
-      facts: [["Inspiracja", "północno-zachodnia Floryda (opinia fanów)"], ["Położenie na mapie", "przybliżone – spekulacja"], ["Klimat", "rdza, pustka, nadmorski wiatr"]] },
+      facts: [["Inspiracja", "północno-zachodnia Floryda (opinia fanów)"], ["Na mapie", "poza pokazanym fragmentem"], ["Klimat", "rdza, pustka, nadmorski wiatr"]] },
     ambrosia: { name: "Ambrosia", type: "Miasto przemysłowe", status: "confirmed",
       desc: "Przemysłowe serce regionu z rafinerią i fabrykami. Teren lokalnych gangów motocyklowych i ludzi ciężkiej pracy.",
-      facts: [["Charakter", "przemysł, rafineria"], ["Położenie na mapie", "przybliżone – spekulacja"], ["Klimat", "dym, stal, motocykle"]] },
+      facts: [["Charakter", "przemysł, rafineria"], ["Na mapie", "poza pokazanym fragmentem"], ["Klimat", "dym, stal, motocykle"]] },
     kalaga: { name: "Mount Kalaga National Park", type: "Park narodowy", status: "confirmed",
       desc: "Dzika, zalesiona północ Leonidy: szlaki, rzeki i tereny do wypraw w głąb lasu.",
-      facts: [["Charakter", "lasy, góry, szlaki"], ["Położenie na mapie", "przybliżone – spekulacja"], ["Klimat", "spokój z dala od miasta"]] },
+      facts: [["Charakter", "lasy, góry, szlaki"], ["Na mapie", "poza pokazanym fragmentem"], ["Klimat", "spokój z dala od miasta"]] },
   };
 
   const NEWS = [
@@ -555,7 +567,8 @@
   });
   $$(".loc-card").forEach((c) => c.addEventListener("click", () => {
     showLocation(c.dataset.locOpen);
-    $(".map-wrap").scrollIntoView({ behavior: "smooth", block: "center" });
+    const target = $(`.pin[data-loc="${c.dataset.locOpen}"]`) ? $(".map-wrap") : locPanel;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
   }));
   showLocation("vice");
 

@@ -443,23 +443,28 @@ code { font-family: var(--font-mono); font-size: .9em; background: var(--card); 
 /* =========================================================
    ŚWIAT
    ========================================================= */
-.world-layout { display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: stretch; }
+.world-layout { display: grid; grid-template-columns: 1.65fr 1fr; gap: 28px; align-items: start; }
 .map-wrap { border-radius: 26px; padding: 14px; background: var(--card-solid); border: 1px solid var(--border); box-shadow: var(--shadow); }
-.leonida-map { width: 100%; height: auto; display: block; color: var(--teal); }
-.map-sea { color: var(--teal); }
-.map-land { stroke: rgba(255,46,136,.6); stroke-width: 2; filter: drop-shadow(0 0 14px rgba(255,46,136,.35)); }
-:root[data-theme="light"] .map-land { fill: #f3dcff; }
-.map-keys { stroke: rgba(0,229,212,.7); }
-.map-swamp { fill: rgba(0,229,212,.12); stroke: rgba(0,229,212,.35); stroke-dasharray: 4 4; }
-.map-caption { font-size: 12px; fill: var(--text-3); font-family: var(--font); }
-.pin { cursor: pointer; outline: none; }
-.pin circle:not(.pin-pulse) { fill: var(--pink); stroke: #fff; stroke-width: 2.5; transition: r .3s var(--ease), fill .3s; }
-.pin-pulse { fill: rgba(255,46,136,.3); transform-box: fill-box; transform-origin: center; animation: pinpulse 2.2s infinite; }
-.pin text { fill: var(--text); font-size: 15px; font-weight: 700; text-anchor: middle; font-family: var(--font); paint-order: stroke; stroke: var(--card-solid); stroke-width: 4px; pointer-events: none; }
-.pin:hover circle:not(.pin-pulse), .pin:focus-visible circle:not(.pin-pulse) { r: 11; }
-.pin.active circle:not(.pin-pulse) { fill: var(--teal); r: 11; }
-.pin.active .pin-pulse { fill: rgba(0,229,212,.35); }
-@keyframes pinpulse { 0% { transform: scale(.6); opacity: 1; } 100% { transform: scale(2.2); opacity: 0; } }
+.map-img { position: relative; border-radius: 16px; overflow: hidden; }
+.map-img img { width: 100%; height: auto; transition: transform .8s var(--ease); }
+.pin {
+  position: absolute; left: var(--x); top: var(--y); width: 34px; height: 34px; margin: -17px 0 0 -17px;
+  padding: 0; border: 0; background: none; border-radius: 50%; display: grid; place-items: center; z-index: 2;
+}
+.pin::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: rgba(255,46,136,.45); animation: pinpulse 2.2s infinite; }
+.pin-dot { position: relative; width: 16px; height: 16px; border-radius: 50%; background: var(--pink); border: 3px solid #fff; box-shadow: 0 2px 10px rgba(0,0,0,.5); transition: transform .3s var(--ease), background .3s; }
+.pin::after {
+  content: attr(aria-label); position: absolute; bottom: calc(100% + 4px); left: 50%; transform: translate(-50%, 6px);
+  padding: 5px 10px; border-radius: 8px; background: #12091f; color: #fff; font-size: 13px; font-weight: 700; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: all .25s var(--ease); box-shadow: 0 6px 20px rgba(0,0,0,.4);
+}
+.pin:hover::after, .pin:focus-visible::after, .pin.active::after { opacity: 1; transform: translate(-50%, 0); }
+.pin:hover .pin-dot, .pin:focus-visible .pin-dot { transform: scale(1.25); }
+.pin.active .pin-dot { background: var(--teal); transform: scale(1.25); }
+.pin.active::before { background: rgba(0,229,212,.5); }
+@keyframes pinpulse { 0% { transform: scale(.4); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+.map-foot { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 12px 6px 2px; font-size: 13px; color: var(--text-3); }
+.map-foot a { font-weight: 700; text-decoration: none; }
 
 .loc-panel {
   border-radius: 26px; padding: 30px; position: relative; overflow: hidden;

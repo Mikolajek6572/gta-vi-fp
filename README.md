@@ -12,4 +12,4 @@ Własne screeny do galerii dodasz w tablicy `GALLERY` w `script.js`:
 { src: "img/moj-screen.jpg", title: "Tytuł", caption: "Opis", cat: "miasto" }
 ```
 
-> Strona nie jest powiązana z Rockstar Games ani Take-Two Interactive. Grand Theft Auto i GTA VI są znakami towarowymi ich właścicieli. Grafiki na stronie to oryginalne ilustracje fanowskie.
+> Strona nie jest powiązana z Rockstar Games ani Take-Two Interactive. Grand Theft Auto i GTA VI są znakami towarowymi ich właścicieli. Portrety Lucii i Jasona (`img/`) to materiały promocyjne © Rockstar Games użyte w celach fanowskich, pozostałe grafiki to oryginalne ilustracje fanowskie.

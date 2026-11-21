@@ -377,10 +377,25 @@ code { font-family: var(--font-mono); font-size: .9em; background: var(--card); 
 .hero-card-art { position: relative; height: 280px; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; }
 .hero-lucia .hero-card-art { background: radial-gradient(circle at 50% 120%, #ff2e88, #7b2cff 50%, #1a0b33 85%); }
 .hero-jason .hero-card-art { background: radial-gradient(circle at 50% 120%, #ff8a00, #00a3b8 50%, #0b1a2a 85%); }
-.portrait { position: relative; z-index: 2; width: 220px; transition: transform .6s var(--ease); }
-.hero-card:hover .portrait { transform: translateY(-8px) scale(1.04); }
+.hero-card-art { height: 400px; }
+.hero-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%;
+  transition: transform .9s var(--ease), filter .6s;
+  filter: saturate(1.08) contrast(1.04);
+}
+.hero-card:hover .hero-photo { transform: scale(1.05); filter: saturate(1.2) contrast(1.06); }
+.hero-card-art::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: soft-light;
+}
+.hero-lucia .hero-card-art::before { background: linear-gradient(160deg, rgba(255,46,136,.55), transparent 55%, rgba(123,44,255,.5)); }
+.hero-jason .hero-card-art::before { background: linear-gradient(160deg, rgba(0,229,212,.5), transparent 55%, rgba(255,138,0,.5)); }
+.hero-card-art::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 45%; z-index: 1; pointer-events: none;
+  background: linear-gradient(transparent, var(--card-solid));
+}
 .hero-name-bg {
-  position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); z-index: 2;
+  text-shadow: 0 0 30px rgba(255,46,136,.5);
   font-family: var(--font-display); font-size: 110px; line-height: 1; letter-spacing: 4px;
   color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,.35); white-space: nowrap;
   transition: letter-spacing .6s var(--ease);
@@ -768,7 +783,7 @@ code { font-family: var(--font-mono); font-size: .9em; background: var(--card); 
   .section { padding: 80px 0; }
   .brand-text small { display: none; }
   .trivia-grid, .side-chars, .loc-cards, .postcards { grid-template-columns: 1fr; }
-  .hero-card-art { height: 230px; }
+  .hero-card-art { height: 340px; }
   .hero-name-bg { font-size: 80px; }
   .hero-card-body { padding: 22px 20px 24px; }
   .hero-card-body h3 { font-size: 28px; }

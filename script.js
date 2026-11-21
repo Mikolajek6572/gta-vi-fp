@@ -64,18 +64,17 @@
       text: "We wrześniu 2022 r. do sieci trafiło ponad 90 nagrań z wczesnej wersji gry. Rockstar potwierdził wyciek i zapewnił, że nie wpłynie on na rozwój produkcji." },
   ];
 
-  // Galeria: grafiki generowane jako SVG. Własne screeny: dodaj obiekt z polem src, np.
-  // { src: "img/moj-screen.jpg", title: "Mój screen", caption: "Opis", cat: "miasto" }
+  // Galeria: zdjęcia z folderu img/galeria. Nowe dodajesz tak:
+  // { src: "img/galeria/8.webp", title: "Tytuł", caption: "Opis", cat: "postacie" }   (cat: postacie | akcja | grafiki)
+  // Obiekt z polem scene zamiast src rysuje fanowską ilustrację SVG (scene: beach | skyline | keys | swamp | highway | mountain | port, pal: 0-8).
   const GALLERY = [
-    { scene: "beach",   title: "Zachód słońca nad plażą", caption: "Fanowska ilustracja – wybrzeże Vice City", cat: "miasto", pal: 0 },
-    { scene: "skyline", title: "Neonowe Vice City", caption: "Fanowska ilustracja – miasto nocą", cat: "noc", pal: 1 },
-    { scene: "keys",    title: "Most nad Keys", caption: "Fanowska ilustracja – Leonida Keys", cat: "natura", pal: 2 },
-    { scene: "swamp",   title: "Mgła nad mokradłami", caption: "Fanowska ilustracja – Grassrivers", cat: "natura", pal: 3 },
-    { scene: "highway", title: "Autostrada o zmierzchu", caption: "Fanowska ilustracja – droga przez Leonidę", cat: "miasto", pal: 4 },
-    { scene: "mountain",title: "Lasy na północy", caption: "Fanowska ilustracja – Mount Kalaga", cat: "natura", pal: 5 },
-    { scene: "skyline", title: "Miasto o świcie", caption: "Fanowska ilustracja – panorama Vice City", cat: "miasto", pal: 6 },
-    { scene: "beach",   title: "Księżycowa plaża", caption: "Fanowska ilustracja – nocne wybrzeże", cat: "noc", pal: 7 },
-    { scene: "port",    title: "Stary port", caption: "Fanowska ilustracja – Port Gellhorn", cat: "miasto", pal: 8 },
+    { src: "img/galeria/5.webp", title: "Przejażdżka kabrioletem", caption: "Wieżowce w tle i słońce Leonidy", cat: "postacie" },
+    { src: "img/galeria/2.webp", title: "Popołudnie na ganku", caption: "Drewniany dom, okulary i upał", cat: "postacie" },
+    { src: "img/galeria/4.webp", title: "Rozmowa przy pick-upie", caption: "Ulica w słoneczny dzień", cat: "postacie" },
+    { src: "img/galeria/1.webp", title: "Pistolety w górę", caption: "Napięta scena w zadymionym wnętrzu", cat: "akcja" },
+    { src: "img/galeria/3.webp", title: "Przy okienku kasy", caption: "Kasjer za kratą i szybą", cat: "akcja" },
+    { src: "img/galeria/6.webp", title: "Powitanie na ulicy", caption: "Złote łańcuchy i żółwik", cat: "postacie" },
+    { src: "img/galeria/7.webp", title: "Kolaż Leonidy", caption: "Grafika z motywami GTA VI", cat: "grafiki" },
   ];
 
   const LOCATIONS = {
@@ -472,7 +471,7 @@
   GALLERY.forEach((item, i) => galleryEl.appendChild(galleryTile(item, i)));
 
   const postcardsEl = $("#worldPostcards");
-  [0, 2, 3].forEach((i) => {
+  [0, 1, 2].forEach((i) => {
     const t = galleryTile(GALLERY[i], i);
     postcardsEl.appendChild(t);
   });

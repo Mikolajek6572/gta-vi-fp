@@ -525,6 +525,11 @@ code { font-family: var(--font-mono); font-size: .9em; background: var(--card); 
 .g-item:hover .g-zoom { opacity: 1; transform: none; }
 .g-item.hide { display: none; }
 .postcards .g-item { margin: 0; }
+.gallery { columns: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.gallery .g-item { margin: 0; }
+.gallery .g-item img, .postcards .g-item img { aspect-ratio: 2 / 1; object-fit: cover; object-position: 50% 40%; }
+@media (max-width: 920px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .gallery { grid-template-columns: 1fr; } }
 
 /* ---------- Lightbox ---------- */
 .lightbox {
